@@ -43375,7 +43375,7 @@ justify-content: center;
     .fusion-mobile-menu-design-classic.fusion-header-v1 .fusion-main-menu,
     .fusion-mobile-menu-design-classic.fusion-header-v2 .fusion-main-menu,
     .fusion-mobile-menu-design-classic.fusion-header-v3 .fusion-main-menu {
-      display: none
+      display: flex;
     }
   
     .fusion-mobile-menu-design-classic.fusion-header-v7 .fusion-main-menu {
