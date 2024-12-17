@@ -46927,6 +46927,12 @@ justify-content: center;
   line-height: var(--awb-typography1-line-height);
 }
 
+@media(max-width:768px){
+  .fusion-title-2 .title-heading-center{
+    --fontSize:45 ;
+  }
+}
+
 /* fusion-text-1 */
 .fusion-text.fusion-text-1 {
   text-align: left;
