@@ -46937,6 +46937,16 @@ justify-content: center;
   margin-left: 15%;
 }
 
+
+@media(max-width:678px){
+  .fusion-text.fusion-text-1{
+    margin-right: 1%;
+  margin-left: 1%;
+  line-height: 25px;
+  }
+}
+
+
 /* Кнопка button-1 */
 .fusion-button.button-1 .fusion-button-text {
   color: var(--awb-color1);
