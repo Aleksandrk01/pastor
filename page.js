@@ -21,3 +21,44 @@
             modal.style.display = "none";
         }
     }
+
+    let currentIndex = 0;
+    const images = [
+        "./img/coment1.jpg",
+        "./img/coment2.jpg",
+        "./img/coment3.jpg",
+        "./img/coment4.jpg",
+        "./img/coment5.jpg"
+    ];
+    
+    function openModal(index) {
+        currentIndex = index;
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("modalImg");
+        modal.style.display = "block";
+        modalImg.src = images[currentIndex];
+    }
+    
+    function closeModal() {
+        const modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
+    
+    function changeImage(step) {
+        currentIndex += step;
+        if (currentIndex >= images.length) {
+            currentIndex = 0;
+        } else if (currentIndex < 0) {
+            currentIndex = images.length - 1;
+        }
+        const modalImg = document.getElementById("modalImg");
+        modalImg.src = images[currentIndex];
+    }
+    
+    // Закрытие модального окна при клике вне изображения
+    window.onclick = function(event) {
+        const modal = document.getElementById("myModal");
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };

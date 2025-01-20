@@ -14,7 +14,7 @@
 	<meta property="og:image" content="/wp-content/uploads/logo_small-2.png">
 	<!-- Подключаем только один внешний файл стилей -->
 	<link rel="stylesheet" href="style.css" type="text/css" media="all">
-
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
 	<script type="text/javascript">
 		var doc = document.documentElement;
 		doc.setAttribute('data-useragent', navigator.userAgent);
@@ -272,8 +272,7 @@
 											</section>
 										</div>
 									</div>
-								</div>
-
+								</div>						
 								<div class="fusion-fullwidth fullwidth-box fusion-builder-row-3 fusion-flex-container hundred-percent-fullwidth non-hundred-percent-height-scrolling"
 									id="services">
 									<div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-justify-content-space-evenly">
@@ -282,20 +281,100 @@
 												<!-- Дополнительный контент -->
 											</div>
 										</div>
-
+									
 										<div class="fusion-layout-column fusion_builder_column fusion-builder-column-17 fusion_builder_column_1_1 1_1 fusion-flex-column"
 											id="services">
-											<div class="fusion-column-wrapper fusion-flex-justify-content-flex-start fusion-content-layout-column">
-												<div class="fusion-title title fusion-title-16 fusion-sep-none fusion-title-center fusion-title-text fusion-title-size-two">
-													<h2 class="title-heading-center">Відгуки</h2>
-												</div>
-												<div class="fusion-text fusion-text-10">
-													<h2 style="text-align: center;">Як ми працюємо</h2>
+											<div class="reviews-section">
+												<h2 class="section-title">Відгуки</h2>
+												<div class="gallery">
+													<img src="./img/coment1.jpg" alt="coment" class="gallery-item" onclick="openModal(0)">
+													<img src="./img/coment2.jpg" alt="coment" class="gallery-item" onclick="openModal(1)">
+													<img src="./img/coment3.jpg" alt="coment" class="gallery-item" onclick="openModal(2)">
+													<img src="./img/coment4.jpg" alt="coment" class="gallery-item" onclick="openModal(3)">
+													<img src="./img/coment5.jpg" alt="coment" class="gallery-item" onclick="openModal(4)">
 												</div>
 											</div>
+											
+											<!-- Модальное окно -->
+											<div id="myModal" class="modal">
+												<span class="close" onclick="closeModal()">&times;</span>
+												<span class="arrow left" onclick="changeImage(-1)">&#10094;</span>
+												<span class="arrow right" onclick="changeImage(1)">&#10095;</span>
+												<img class="modal-content" id="modalImg">
+											</div>
+									
+										<div class="how-we-work">
+											<h2 class="section-title">Як ми працюємо</h2>
+											<div>
+												<video width="200" height="60" muted poster="./img/poster1.jpg">
+													<source src="./img/video1.mp4" type="video/mp4">
+													Ваш браузер не підтримує тег video.
+												</video>
+												<video width="200" height="60" muted poster="./img/poster2.jpg">
+													<source src="./img/video2.mp4" type="video/mp4">
+													Ваш браузер не підтримує тег video.
+												</video>
+												<video width="500" height="60" muted poster="./img/poster3.jpg">
+													<source src="./img/video3.mp4" type="video/mp4">
+													Ваш браузер не підтримує тег video.
+												</video>
+											</div>
+										</div>
 										</div>
 									</div>
-								</div>
+									
+									<script>
+									document.addEventListener("DOMContentLoaded", function() {
+										// Выбираем все элементы video внутри .how-we-work
+										const videos = document.querySelectorAll('.how-we-work video');
+								
+										// Добавляем обработчики событий для каждого видео
+										videos.forEach(function(video) {
+											video.addEventListener('mouseenter', () => {
+												video.play();
+											});
+								
+											video.addEventListener('mouseleave', () => {
+												video.pause();
+												video.currentTime = 0; // Возвращает видео к началу
+											});
+										});
+								
+										// Функции для модального окна
+										function openModal(index) {
+											const modal = document.getElementById("myModal");
+											const modalImg = document.getElementById("modalImg");
+											const images = document.querySelectorAll(".gallery-item");
+											modal.style.display = "block";
+											modalImg.src = images[index].src;
+										}
+								
+										function closeModal() {
+											const modal = document.getElementById("myModal");
+											modal.style.display = "none";
+										}
+								
+										function changeImage(direction) {
+											const modalImg = document.getElementById("modalImg");
+											const images = document.querySelectorAll(".gallery-item");
+											let currentIndex = Array.from(images).findIndex(img => img.src === modalImg.src);
+											let newIndex = currentIndex + direction;
+											if (newIndex < 0) newIndex = images.length -1;
+											if (newIndex >= images.length) newIndex = 0;
+											modalImg.src = images[newIndex].src;
+										}
+								
+										// Закрытие модального окна при клике вне изображения
+										window.onclick = function(event) {
+											const modal = document.getElementById("myModal");
+											if (event.target == modal) {
+												modal.style.display = "none";
+											}
+										}
+									});
+									</script>
+									
+								
 
 								<div class="fusion-fullwidth fullwidth-box fusion-builder-row-4 fusion-flex-container nonhundred-percent-fullwidth non-hundred-percent-height-scrolling">
 									<div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start">
@@ -441,6 +520,7 @@
 		</div>
 	</div>
 	<script src="./page.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 </body>
 
 </html>
