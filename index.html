@@ -43,7 +43,7 @@
 							<div class="fusion-alignright">
 								<div class="fusion-contact-info">
 									<span class="fusion-contact-info-phone-number">
-										<a href="tel:+380935368674">+38(095)740-81-04</a>
+										<a href="tel:+380987179500">+38(098)717-95-00</a>
 									</span>
 									<span class="fusion-header-separator">|</span>
 									<span class="fusion-contact-info-email-address">
@@ -431,7 +431,8 @@
 													</a>
 												</li>
 												<li class="contact-option contact-option-phone">
-													<a class="contact-link contact-link-phone" href="tel:+380935368674">
+													<!-- Измените ссылку, чтобы она открывала модальное окно -->
+													<a class="contact-link contact-link-phone" href="#" id="customOpenPhoneModal" aria-haspopup="dialog" aria-controls="customPhoneModal">
 														<img class="contact-icon contact-icon-phone" src="./img/telefon-icon.png" alt="Телефон" />
 														Дзвонити
 													</a>
@@ -452,7 +453,7 @@
 						</div> <!-- fusion-columns -->
 					</div> <!-- fusion-row -->
 				</footer> <!-- fusion-footer-widget-area -->
-
+		
 				<footer id="footer" class="fusion-footer-copyright-area">
 					<div class="fusion-row">
 						<div class="fusion-copyright-content">
@@ -465,6 +466,19 @@
 					</div>
 				</footer> <!-- #footer -->
 			</div> <!-- fusion-footer -->
+		
+			<!-- Модальное окно с уникальными классами -->
+			<div id="customPhoneModal" class="custom-modal" role="dialog" aria-labelledby="customPhoneModalTitle" aria-modal="true">
+				<div class="custom-modal-content">
+					<span class="custom-close-button" aria-label="Закрыть">&times;</span>
+					<h2 id="customPhoneModalTitle">Виберіть номер для дзвінка</h2>
+					<ul class="custom-phone-options">
+						<li><a href="tel:+380987179500">+380987179500</a></li>
+						<li><a href="tel:+380637412765">+380637412765</a></li>
+						<li><a href="tel:+380957408104">+380957408104</a></li>
+					</ul>
+				</div>
+			</div>
 
 			<div class="fusion-sliding-bar-wrapper"></div>
 		</div> <!-- wrapper -->

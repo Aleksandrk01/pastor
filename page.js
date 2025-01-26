@@ -62,3 +62,48 @@
             modal.style.display = "none";
         }
     };
+
+
+    var customModal = document.getElementById("customPhoneModal");
+    var customBtn = document.getElementById("customOpenPhoneModal");
+    var customSpan = document.getElementsByClassName("custom-close-button")[0];
+
+    // Функция для открытия модального окна
+    function openCustomModal() {
+        customModal.style.display = "block";
+        // Перемещаем фокус на модальное окно для доступности
+        customModal.setAttribute('tabindex', '-1');
+        customModal.focus();
+    }
+
+    // Функция для закрытия модального окна
+    function closeCustomModal() {
+        customModal.style.display = "none";
+        // Возвращаем фокус на кнопку открытия
+        customBtn.focus();
+    }
+
+    // Когда пользователь нажимает на кнопку, открываем модальное окно
+    customBtn.addEventListener('click', function(event) {
+        event.preventDefault(); // Предотвращаем переход по ссылке
+        openCustomModal();
+    });
+
+    // Когда пользователь нажимает на <span> (x), закрываем модальное окно
+    customSpan.addEventListener('click', function() {
+        closeCustomModal();
+    });
+
+    // Когда пользователь нажимает клавишу "Escape", закрываем модальное окно
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape" && customModal.style.display === "block") {
+            closeCustomModal();
+        }
+    });
+
+    // Когда пользователь кликает вне модального окна, закрываем его
+    window.addEventListener('click', function(event) {
+        if (event.target == customModal) {
+            closeCustomModal();
+        }
+    });

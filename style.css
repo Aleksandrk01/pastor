@@ -47592,3 +47592,62 @@ justify-content: center;
 										.arrow:hover {
 											color: #bbb;
 										}
+  .custom-modal {
+            display: none; /* Скрыто по умолчанию */
+            position: fixed; /* Остается на месте */
+            z-index: 1000; /* Располагается над другими элементами */
+            left: 0;
+            top: 0;
+            width: 100%; /* Полная ширина */
+            height: 100%; /* Полная высота */
+            overflow: auto; /* Включает прокрутку, если необходимо */
+            background-color: rgba(0,0,0,0.5); /* Черный фон с прозрачностью */
+        }
+
+        .custom-modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% сверху и по центру */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Ширина модального окна */
+            max-width: 400px; /* Максимальная ширина */
+            border-radius: 8px;
+            text-align: center;
+            position: relative; /* Для корректного позиционирования кнопки закрытия */
+        }
+
+        .custom-close-button {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .custom-close-button:hover,
+        .custom-close-button:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        .custom-phone-options {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .custom-phone-options li {
+            margin: 10px 0;
+        }
+
+        .custom-phone-options a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 18px;
+        }
+
+        .custom-phone-options a:hover {
+            text-decoration: underline;
+        }
