@@ -47652,3 +47652,20 @@ justify-content: center;
         .custom-phone-options a:hover {
             text-decoration: underline;
         }
+        .fusion-contact-info-phone-number{
+          font-size: 15px;
+        }
+        .fusion-contact-info-email-address{
+          font-size: 15px;
+        }
+
+        @media(max-width:450px){
+          .fusion-contact-info{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+          }
+          .fusion-header-separator{
+            display: none;
+          }
+        }
