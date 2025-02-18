@@ -1,26 +1,32 @@
 
     // Отримати елементи модального вікна та кнопки закриття
-    const modal = document.getElementById("contactModal");
-    const openModalBtn = document.getElementById("openModal");
-    const closeModalBtn = document.querySelector(".close-button");
-
-    // Функція відкриття модального вікна
-    openModalBtn.onclick = function(event) {
-        event.preventDefault();
-        modal.style.display = "block";
-    }
-
-    // Функція закриття модального вікна при натисканні на кнопку закриття
-    closeModalBtn.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // Функція закриття модального вікна при натисканні поза його межами
-    window.onclick = function(event) {
-        if (event.target == modal) {
+    document.addEventListener("DOMContentLoaded", function() {
+        const modal = document.getElementById("contactModal");
+        // Використовуємо querySelectorAll, щоб отримати всі кнопки з класом "openModal"
+        const openModalBtns = document.querySelectorAll(".openModal");
+        const closeModalBtn = modal.querySelector(".close-button");
+      
+        // Додаємо обробник подій для кожної кнопки
+        openModalBtns.forEach(btn => {
+          btn.addEventListener("click", function(event) {
+            event.preventDefault();
+            modal.style.display = "block";
+          });
+        });
+      
+        // Закриття модального вікна по кліку на кнопку закриття
+        closeModalBtn.addEventListener("click", function() {
+          modal.style.display = "none";
+        });
+      
+        // Закриття модального вікна при кліку поза його вмістом
+        window.addEventListener("click", function(event) {
+          if (event.target === modal) {
             modal.style.display = "none";
-        }
-    }
+          }
+        });
+      });
+      
 
     let currentIndex = 0;
     const images = [
@@ -151,22 +157,35 @@ document.querySelectorAll('.accordion-header').forEach(header => {
 });
 
 
- const phoneContact = document.getElementById('phone-contact');
-  const phoneModal = document.getElementById('phoneModal');
-  const closeButtons = document.querySelectorAll('.modal .close-button');
+ // Отримуємо всі елементи, що містять клас "phone-contact"
+const phoneContactButtons = document.querySelectorAll('.phone-contact');
+// Отримуємо модальне вікно з телефонами
+const phoneModal = document.getElementById('phoneModal');
+// Отримуємо кнопку закриття всередині phoneModal
+const modalCloseButtons = phoneModal.querySelectorAll('.close-button');
 
-  // При кліку на "Дзвонити" відкриваємо модальне вікно зі списком телефонів
-  phoneContact.addEventListener('click', function (e) {
-    e.preventDefault();
+// Додаємо обробник подій для кожної кнопки "phone-contact"
+phoneContactButtons.forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault(); // запобігаємо переходу за посиланням
     phoneModal.style.display = 'block';
   });
+});
 
-  // Закриття модального вікна при кліку на хрестик
-  closeButtons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      this.closest('.modal').style.display = 'none';
-    });
+// Закриття модального вікна при кліку на кнопку закриття
+modalCloseButtons.forEach(btn => {
+  btn.addEventListener('click', function() {
+    phoneModal.style.display = 'none';
   });
+});
+
+// Закриття модального вікна при кліку поза його вмістом
+window.addEventListener('click', function(e) {
+  if (e.target === phoneModal) {
+    phoneModal.style.display = 'none';
+  }
+});
+
 
   // Закриття модального вікна при кліку поза його вмістом
   window.addEventListener('click', function (e) {
