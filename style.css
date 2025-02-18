@@ -47442,7 +47442,7 @@ justify-content: center;
 .modal {
   display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 100000;
   padding-top: 60px;
   left: 0;
   top: 0;
@@ -47542,7 +47542,7 @@ justify-content: center;
 										.modal {
 											display: none; /* Скрыто по умолчанию */
 											position: fixed; /* Остаётся на месте */
-											z-index: 1000; /* Поверх всех элементов */
+											z-index: 100000; /* Поверх всех элементов */
 											padding-top: 60px; /* Расстояние сверху */
 											left: 0;
 											top: 0;
@@ -47654,6 +47654,7 @@ justify-content: center;
         }
         .fusion-contact-info-phone-number{
           font-size: 15px;
+          font-weight: 700;
         }
         .fusion-contact-info-email-address{
           font-size: 15px;
@@ -47668,4 +47669,128 @@ justify-content: center;
           .fusion-header-separator{
             display: none;
           }
+          .fusion-contact-info-phone-number{
+
+            font-size: 24px;
+          }
         }
+
+.accordion .card {
+  overflow: hidden;
+}
+
+.accordion .card:not(:first-of-type) .card-header:first-child {
+  border-radius: 0;
+}
+
+.accordion .card:not(:first-of-type):not(:last-of-type) {
+  border-bottom: 0;
+  border-radius: 0;
+}
+
+.accordion .card:first-of-type {
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.accordion .card:last-of-type {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.accordion .card .card-header {
+  margin-bottom: -1px;
+}
+.accordion-content {
+  /* background-color: #fbfbfb; */
+  border-left: solid 1px;
+  border-right: solid 1px;
+  border-color: #e3e3e3;
+  padding: 0px 30px;
+  background-color: #73bde140;
+}
+
+.accordion {
+
+  margin: 20px auto;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ccc;
+}
+
+.accordion-header {
+  padding: 15px;
+  background-color: #ffffff;
+  cursor: pointer;
+  padding-left: 30px;
+  font-size: 15pt;
+  /* padding-right: 40px; */
+  position: relative;
+}
+
+.accordion-content {
+  display: none;
+  padding: 15px;
+}
+
+.accordion-content p {
+  margin: 0;
+}
+span.name_headet_text_span {
+  width: calc(100% - 50px);
+  display: block;
+}
+.plus {
+  /* margin: auto; */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  /* display: block; */
+  /* float: right; */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 26px;
+  flex: 0 0 26px;
+  /* margin-left: 20px; */
+  position: relative;
+  -webkit-transition: .4s;
+  transition: .4s;
+  /* margin-top: -40px; */
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  /* margin: auto; */
+}
+.plus:before {
+  width: 3px;
+  height: 100%;
+  transform: rotate(90deg);
+}
+
+.plus:after {
+  width: 3px;
+  height: 100%;
+  transform: rotate(0deg);
+}
+
+.rotated:after {
+  transform: rotate(90deg);
+}
+
+.plus:before,
+.plus:after {
+  background-color: #006494;
+  content: '';
+  display: block;
+  position: absolute;
+  -webkit-transition: .3s;
+  transition: .3s;
+}

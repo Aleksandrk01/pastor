@@ -107,3 +107,136 @@
             closeCustomModal();
         }
     });
+
+    // Добавляем обработчик события клика для 'yazik1'
+document.querySelectorAll('.yazik1').forEach(item => {
+    item.addEventListener('click', function () {
+        const link = item.querySelector('a').getAttribute('href');
+        window.location.href = link;
+        alert('.yazik1');
+    });
+});
+
+// Добавляем обработчик события клика для 'yazik2'
+document.querySelectorAll('.yazik2').forEach(item => {
+    item.addEventListener('click', function () {
+        const link = item.querySelector('a').getAttribute('href');
+        window.location.href = link;
+        alert('.yazik2');
+    });
+});
+
+// Обработчик аккордеона
+document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', function () {
+        // Удаляем класс rotated у всех .plus, кроме текущего
+        document.querySelectorAll('.plus').forEach(plus => {
+            if (plus !== this.querySelector('.plus')) {
+                plus.classList.remove('rotated');
+            }
+        });
+
+        const plusIcon = this.querySelector('.plus');
+        plusIcon.classList.toggle('rotated');
+
+        // Переключаем отображение контента
+        const content = this.nextElementSibling;
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
+            content.style.display = 'block';
+        }
+    });
+});
+
+
+ const phoneContact = document.getElementById('phone-contact');
+  const phoneModal = document.getElementById('phoneModal');
+  const closeButtons = document.querySelectorAll('.modal .close-button');
+
+  // При кліку на "Дзвонити" відкриваємо модальне вікно зі списком телефонів
+  phoneContact.addEventListener('click', function (e) {
+    e.preventDefault();
+    phoneModal.style.display = 'block';
+  });
+
+  // Закриття модального вікна при кліку на хрестик
+  closeButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      this.closest('.modal').style.display = 'none';
+    });
+  });
+
+  // Закриття модального вікна при кліку поза його вмістом
+  window.addEventListener('click', function (e) {
+    if (e.target.classList.contains('modal')) {
+      e.target.style.display = 'none';
+    }
+  });
+
+// Телефонный фикс модал
+const telFix = document.querySelector('.tel_fix');
+telFix.addEventListener('click', function () {
+    const modal = document.querySelector('.modal-dialog1');
+    modal.style.display = 'block';
+    setTimeout(() => {
+        modal.classList.add('animate_class');
+        document.querySelector('.modal-content1').classList.add('animate_class');
+    }, 100);
+
+    document.addEventListener('click', function hideModal(e) {
+        if (!e.target.closest('.modal-content1, .tel_fix')) {
+            modal.style.display = 'none';
+            modal.classList.remove('animate_class');
+            document.querySelector('.modal-content1').classList.remove('animate_class');
+            document.removeEventListener('click', hideModal);
+        }
+    });
+});
+
+// Модальные окна
+const infoButton = document.querySelector('.info-modal-button');
+infoButton.addEventListener('click', e => {
+    e.preventDefault();
+    document.body.classList.add('modal-open');
+    document.querySelector('.consult-modal').classList.add('open');
+});
+
+const giftButton = document.querySelector('.gift-modal-button');
+giftButton.addEventListener('click', e => {
+    e.preventDefault();
+    document.body.classList.add('modal-open');
+    document.querySelector('.gift-modal').classList.add('open');
+});
+
+// Закрытие модалей
+const overlay = document.querySelector('.modal-overlay');
+overlay.addEventListener('click', () => {
+    document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('open'));
+    document.body.classList.remove('modal-open');
+});
+
+document.querySelectorAll('.modal-close, .close').forEach(closeBtn => {
+    closeBtn.addEventListener('click', () => {
+        document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('open'));
+        document.body.classList.remove('modal-open');
+        document.querySelector('.modal-dialog1').style.display = 'none';
+        document.querySelector('.modal-dialog1').classList.remove('animate_class');
+        document.querySelector('.modal-content1').classList.remove('animate_class');
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var url = window.location.href;
+
+    if (url.includes("/#index")) {
+        document.querySelector('.my_pop_up').style.display = 'block';
+
+        setTimeout(function () {
+            document.querySelector('.my_pop_up').style.display = 'none';
+            // location.replace("https://prussakoff.dp.ua");
+        }, 5000);
+    }
+});
+
